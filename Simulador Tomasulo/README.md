@@ -4,10 +4,12 @@ Esse programa é um simulador do algoritmo de instruções fora de ordem de Toma
 
 # Instruções suportadas
 
+- [x] Interface gráfica
 - [x] Suporte de instruções de MIPS
-- [x] Instruções de desvio 
-- [ ] Instruções de descarte
-- [ ] Buffer de reordenamento
+- [x] Buffer de reordenamento
+- [x] Despacho fora de ordem de instruções
+- [x] Verificação de dependências verdadeiras
+- [x] Verificação de antidependências
 
 ## Como usar
 
