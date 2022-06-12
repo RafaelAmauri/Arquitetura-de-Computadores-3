@@ -96,9 +96,12 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.exitApp.triggered.connect(MainWindow.close) # type: ignore
         self.openFile.triggered.connect(MainWindow.load_instructions_from_system) # type: ignore
         MainWindow.instructions_loaded['QString'].connect(self.instructionsScroll.add_instructions) # type: ignore
+        self.stepButton.pressed.connect(self.instructionsScroll.tomasulo_step) # type: ignore
+        self.instructionsScroll.tomasulo_finalized.connect(MainWindow.tomasulo_finalized) # type: ignore
+        self.exitApp.triggered.connect(MainWindow.close) # type: ignore
+        self.instructionsScroll.tomasulo_step_taken['QVariantList','QVariantList'].connect(self.instructionsList.update_instructions) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

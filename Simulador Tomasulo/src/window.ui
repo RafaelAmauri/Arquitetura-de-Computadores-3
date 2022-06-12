@@ -163,6 +163,9 @@ color: rgb(0, 0, 0);</string>
    <extends>QWidget</extends>
    <header>widgets/instructions_list.h</header>
    <container>1</container>
+   <slots>
+    <slot>update_instructions(QVariantList,QVariantList)</slot>
+   </slots>
   </customwidget>
   <customwidget>
    <class>InstructionsScroll</class>
@@ -170,29 +173,15 @@ color: rgb(0, 0, 0);</string>
    <header>widgets/instructions_scroll.h</header>
    <container>1</container>
    <slots>
+    <signal>tomasulo_finalized()</signal>
+    <signal>tomasulo_step_taken(QVariantList,QVariantList)</signal>
     <slot>add_instructions(QString)</slot>
-    <slot>tomasulu_step()</slot>
+    <slot>tomasulo_step()</slot>
    </slots>
   </customwidget>
  </customwidgets>
  <resources/>
  <connections>
-  <connection>
-   <sender>exitApp</sender>
-   <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>openFile</sender>
    <signal>triggered()</signal>
@@ -220,8 +209,72 @@ color: rgb(0, 0, 0);</string>
      <y>299</y>
     </hint>
     <hint type="destinationlabel">
-     <x>202</x>
+     <x>194</x>
      <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stepButton</sender>
+   <signal>pressed()</signal>
+   <receiver>instructionsScroll</receiver>
+   <slot>tomasulo_step()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>789</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>194</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>instructionsScroll</sender>
+   <signal>tomasulo_finalized()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>tomasulo_finalized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>194</x>
+     <y>321</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exitApp</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>instructionsScroll</sender>
+   <signal>tomasulo_step_taken(QVariantList,QVariantList)</signal>
+   <receiver>instructionsList</receiver>
+   <slot>update_instructions(QVariantList,QVariantList)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>321</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>596</x>
+     <y>324</y>
     </hint>
    </hints>
   </connection>
@@ -229,5 +282,6 @@ color: rgb(0, 0, 0);</string>
  <slots>
   <signal>instructions_loaded(QString)</signal>
   <slot>load_instructions_from_system()</slot>
+  <slot>tomasulo_finalized()</slot>
  </slots>
 </ui>

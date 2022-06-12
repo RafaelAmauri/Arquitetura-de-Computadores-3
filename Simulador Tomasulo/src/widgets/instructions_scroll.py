@@ -1,16 +1,22 @@
-from PyQt6.QtWidgets import (QScrollArea, QWidget, QVBoxLayout,QSizePolicy)
-from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import (QScrollArea, QWidget, QVBoxLayout,QSizePolicy, QMessageBox)
+from PyQt6.QtCore import Qt, pyqtSignal as Signal
 
 from widgets.instruction_box import InstructionBox
 
 from backend.back import Tomasulo
+from backend.back import TomasuloStates
 
 class InstructionsScroll(QScrollArea):
+
+    tomasulo_finalized  = Signal()
+    tomasulo_step_taken = Signal(list,list)
 
     def __init__(self, parent=None):
         super().__init__(parent)
         self.tomasulu = None
         self.setupUi()
+
+        print(self.tomasulo_step_taken)
 
     def setupUi(self):
         self.widget = QWidget()
@@ -25,8 +31,24 @@ class InstructionsScroll(QScrollArea):
             self.vbox.itemAt(i).widget().setParent(None)
 
     #@pyqtSignal
-    def tomasulu_step(self):
+    def tomasulo_step(self):
         status, unidades_funcionais, inst_queue = self.tomasulu.clock()
+
+        if status == TomasuloStates.FINALIZED:
+
+            msg = QMessageBox()
+
+            msg.setIcon(QMessageBox.Icon.Information)
+            msg.setText("Finalized")
+            msg.setInformativeText("Tomasulo was finished")
+            msg.setWindowTitle("Tomasulo Status")
+
+            msg.exec()
+
+            self.remove_children()
+            self.tomasulo_finalized.emit()
+
+        self.tomasulo_step_taken.emit(unidades_funcionais,inst_queue)
 
 
     #@pyqtSignal

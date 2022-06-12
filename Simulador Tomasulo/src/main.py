@@ -23,6 +23,8 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        self.ui.stepButton.setEnabled(False)
+
     #@pyQtSlot
     def load_instructions_from_system(self):
 
@@ -35,7 +37,13 @@ class MainWindow(QMainWindow):
         if not file_path:
             return 
 
+        self.ui.stepButton.setEnabled(True)
+
         self.instructions_loaded.emit(file_path)
+
+    #@pyQtSlot
+    def tomasulo_finalized(self):
+        self.ui.stepButton.setEnabled(False)
 
 
 
