@@ -1,0 +1,4 @@
+4: lw r1, r2
+4: mul r2, r1, r1
+4: add r2, r2, r3
+4: sub r5, r5, r5

@@ -1,0 +1,11 @@
+{
+    "files": [
+    "main.py",
+    "window.ui",
+    "window.py",
+    "utils/os_utils.py",
+    "widgets/instructions_list.py",
+    "widgets/instructions_scroll.py",
+    "widgets/instruction_box.py"
+    ]
+}
