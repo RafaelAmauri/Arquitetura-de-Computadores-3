@@ -13,7 +13,7 @@ class InstructionsScroll(QScrollArea):
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.tomasulu = None
+        self.tomasulo = None
         self.setupUi()
 
     def setupUi(self):
@@ -30,7 +30,7 @@ class InstructionsScroll(QScrollArea):
 
     #@pyqtSignal
     def tomasulo_step(self):
-        status, unidades_funcionais, inst_queue = self.tomasulu.clock()
+        status, unidades_funcionais, inst_queue = self.tomasulo.clock()
 
         if status == TomasuloStates.FINALIZED:
 
@@ -46,7 +46,10 @@ class InstructionsScroll(QScrollArea):
             self.remove_children()
             self.tomasulo_finalized.emit()
 
-        self.tomasulo_step_taken.emit(unidades_funcionais,inst_queue)
+            self.tomasulo = None
+
+        else:
+            self.tomasulo_step_taken.emit(unidades_funcionais,inst_queue)
 
 
     #@pyqtSignal
@@ -54,8 +57,8 @@ class InstructionsScroll(QScrollArea):
 
         self.remove_children()
 
-        self.tomasulu = Tomasulo(instructions_file_path)
-        instructions = self.tomasulu.instrucoes
+        self.tomasulo = Tomasulo(instructions_file_path)
+        instructions = self.tomasulo.instrucoes
 
         for i in range(len(instructions)):
 

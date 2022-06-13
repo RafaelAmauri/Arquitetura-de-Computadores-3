@@ -74,7 +74,7 @@ class InstructionsList(QWidget):
 
             vbox.addWidget(lineEdit)
         
-    def __clean_instructions(self):
+    def clean_instructions(self):
         self.clean_line_edits(self.add_sub_vbox)
         self.clean_line_edits(self.mul_div_vbox)
         self.clean_line_edits(self.load_store_vbox)
@@ -84,7 +84,7 @@ class InstructionsList(QWidget):
     #@pyQtSignal
     def update_instructions(self, functional_units, ints_queue):
 
-        self.__clean_instructions()
+        self.clean_instructions()
 
         for i in range(len(functional_units[0])):
             self.__change_line_edit_text(self.add_sub_vbox,functional_units[0][i].get_instrucao().str2(),i)

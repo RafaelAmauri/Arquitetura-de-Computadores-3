@@ -1,32 +1,45 @@
 # This Python file uses the following encoding: utf-8
 import sys
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PyQt6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from PyQt6.QtCore import pyqtSignal as Signal
 
 import utils.os_utils as OsUtils
 
 from window import Ui_MainWindow
 
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow, Ui_MainWindow):
 
     instructions_loaded = Signal(str)
 
-    def __init__(self):
-        super().__init__()
-        self.setupUi()
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)
 
-        self.setWindowTitle('TomasuluPy')
+        self.setWindowTitle('Tomasulu Visual')
         self.showMaximized()
-
-    def setupUi(self):
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
-
-        self.ui.stepButton.setEnabled(False)
+        self.stepButton.setEnabled(False)
 
     #@pyQtSlot
     def load_instructions_from_system(self):
+
+        if self.instructionsScroll.tomasulo != None:
+
+            msg = QMessageBox()
+
+            msg.setIcon(QMessageBox.Icon.Critical)
+            msg.setText("A simulation is still in progress, do you want to start a new one?")
+            msg.setInformativeText("Click \'Ok\' to progress, and \'Cancel\' to continue the current simulation")
+            msg.setWindowTitle("Tomasulo in Proccess")
+            msg.setStandardButtons(QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel)
+            msg.setDefaultButton(QMessageBox.StandardButton.Ok)
+
+            resp = msg.exec()
+
+            if resp == QMessageBox.StandardButton.Cancel:
+                return
+
+            self.instructionsList.clean_instructions()
 
         file_path = QFileDialog.getOpenFileName(
                     self,
@@ -37,13 +50,14 @@ class MainWindow(QMainWindow):
         if not file_path:
             return 
 
-        self.ui.stepButton.setEnabled(True)
+        self.stepButton.setEnabled(True)
 
         self.instructions_loaded.emit(file_path)
 
     #@pyQtSlot
     def tomasulo_finalized(self):
-        self.ui.stepButton.setEnabled(False)
+        self.instructionsList.clean_instructions()
+        self.stepButton.setEnabled(False)
 
 
 
