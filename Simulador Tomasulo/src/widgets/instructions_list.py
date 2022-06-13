@@ -95,8 +95,11 @@ class InstructionsList(QWidget):
         for i in range(len(functional_units[2])):
             self.__change_line_edit_text(self.load_store_vbox,functional_units[2][i].get_instrucao().str2(),i)
 
+        j : int = len(self.instruction_queue_vbox) - 2
+
         for i in range(len(ints_queue)):
-            self.__change_line_edit_text(self.instruction_queue_vbox,ints_queue[i].str2(),i)
+            self.__change_line_edit_text(self.instruction_queue_vbox,ints_queue[i].str2(),j)
+            j -=1
 
     def __change_line_edit_text(self,vbox: QHBoxLayout, label : str, index : int,):
         item : QLineEdit = vbox.itemAt(index+1).widget()

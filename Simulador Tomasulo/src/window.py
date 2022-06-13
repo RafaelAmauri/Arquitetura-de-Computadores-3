@@ -93,8 +93,6 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
-        self.menuHelp = QtWidgets.QMenu(self.menubar)
-        self.menuHelp.setObjectName("menuHelp")
         MainWindow.setMenuBar(self.menubar)
         self.openFile = QtGui.QAction(MainWindow)
         self.openFile.setObjectName("openFile")
@@ -103,7 +101,6 @@ class Ui_MainWindow(object):
         self.menuFile.addAction(self.openFile)
         self.menuFile.addAction(self.exitApp)
         self.menubar.addAction(self.menuFile.menuAction())
-        self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
         self.openFile.triggered.connect(MainWindow.load_instructions_from_system) # type: ignore
@@ -122,7 +119,6 @@ class Ui_MainWindow(object):
         self.stepButton.setText(_translate("MainWindow", "Step"))
         self.toolBar.setWindowTitle(_translate("MainWindow", "toolBar"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
-        self.menuHelp.setTitle(_translate("MainWindow", "Help"))
         self.openFile.setText(_translate("MainWindow", "Open"))
         self.exitApp.setText(_translate("MainWindow", "Exit"))
 from widgets.instructions_list import InstructionsList
