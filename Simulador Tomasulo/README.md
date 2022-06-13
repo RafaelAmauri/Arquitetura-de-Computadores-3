@@ -1,8 +1,8 @@
 # Simulador Tomasulo em Python!
 
-Esse programa é um simulador do algoritmo de instruções fora de ordem de Tomasulo.
+Esse programa é um simulador do algoritmo de de Tomasulo.
 
-# Instruções suportadas
+# Features
 
 - [x] Interface gráfica
 - [x] Suporte de instruções de MIPS
