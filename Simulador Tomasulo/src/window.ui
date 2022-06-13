@@ -20,29 +20,19 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QLabel" name="instructionNumber">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-            <horstretch>50</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(246, 97, 81);
-color: rgb(0, 0, 0);</string>
-          </property>
-          <property name="text">
-           <string>N°     </string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QLabel" name="instructionName">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Noto Sans Adlam</family>
+            <pointsize>20</pointsize>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(143, 240, 164);
@@ -55,6 +45,13 @@ color: rgb(0, 0, 0);</string>
         </item>
         <item>
          <widget class="QLabel" name="instructionCycles">
+          <property name="font">
+           <font>
+            <family>Noto Sans Adlam</family>
+            <pointsize>20</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(153, 193, 241);
 color: rgb(0, 0, 0);</string>
@@ -83,7 +80,7 @@ color: rgb(0, 0, 0);</string>
            <x>0</x>
            <y>0</y>
            <width>384</width>
-           <height>489</height>
+           <height>470</height>
           </rect>
          </property>
         </widget>
@@ -97,14 +94,31 @@ color: rgb(0, 0, 0);</string>
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
       <item>
+       <widget class="InstructionsList" name="instructionsList" native="true"/>
+      </item>
+      <item alignment="Qt::AlignHCenter">
        <widget class="QPushButton" name="stepButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Step</string>
         </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
        </widget>
-      </item>
-      <item>
-       <widget class="InstructionsList" name="instructionsList" native="true"/>
       </item>
      </layout>
     </item>
@@ -138,13 +152,7 @@ color: rgb(0, 0, 0);</string>
     <addaction name="openFile"/>
     <addaction name="exitApp"/>
    </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>Help</string>
-    </property>
-   </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuHelp"/>
   </widget>
   <action name="openFile">
    <property name="text">

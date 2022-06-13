@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.0, 2022-06-12T20:12:45. -->
+<!-- Written by QtCreator 7.0.0, 2022-06-12T23:46:32. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -162,6 +162,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">/home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instructions_scroll.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instructions_scroll.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instructions_scroll.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{4fcd1fcd-45fd-4596-8fc4-7695fc4790f1}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instructions_scroll.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -179,6 +180,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">/home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instruction_box.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instruction_box.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instruction_box.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{5548ea05-765f-481f-bb11-9750ed37a477}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instruction_box.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -196,6 +198,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">/home/guaruda/HD1/code/Tomasulo-Visual/src/utils/os_utils.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/guaruda/HD1/code/Tomasulo-Visual/src/utils/os_utils.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/guaruda/HD1/code/Tomasulo-Visual/src/utils/os_utils.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{e59c37d1-a0d0-4c76-b01f-dd0a7d5a32ed}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/guaruda/HD1/code/Tomasulo-Visual/src/utils/os_utils.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -213,6 +216,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">/home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instructions_list.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instructions_list.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instructions_list.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{eedd58a8-f913-40ab-a6fc-b007c4fe4738}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/guaruda/HD1/code/Tomasulo-Visual/src/widgets/instructions_list.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>

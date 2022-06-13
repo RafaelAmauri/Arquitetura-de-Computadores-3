@@ -1,11 +1,18 @@
 
 from PyQt6.QtWidgets import (QWidget,QLabel,QVBoxLayout, QHBoxLayout, QLineEdit, QSizePolicy)
 from PyQt6.QtCore import Qt 
+from PyQt6.QtGui import QFont
 
 class InstructionsList(QWidget):
 
     def __init__(self, parent=None):
         super().__init__(parent)
+        self.label_font = QFont()
+        self.label_font.setPointSize(20)
+
+        self.line_edit_font = QFont()
+        self.line_edit_font.setPointSize(18)
+
         self.setupUi()
 
     def clean_line_edits(self, vbox : QVBoxLayout):
@@ -56,34 +63,40 @@ class InstructionsList(QWidget):
 
         qlabel = QLabel(label)
         qlabel.setSizePolicy(QSizePolicy.Policy.Fixed,QSizePolicy.Policy.Fixed)
+        qlabel.setFont(self.label_font)
         vbox.addWidget(qlabel)
 
         for i in range(number_of_instructions):
             lineEdit = QLineEdit()
+            lineEdit.setFont(self.line_edit_font)
             lineEdit.setSizePolicy(QSizePolicy.Policy.Fixed,QSizePolicy.Policy.Fixed)
             lineEdit.setReadOnly(True)
 
             vbox.addWidget(lineEdit)
         
-    #@pyQtSignal
-    def update_instructions(self, functional_units, ints_queue):
-
+    def __clean_instructions(self):
         self.clean_line_edits(self.add_sub_vbox)
         self.clean_line_edits(self.mul_div_vbox)
         self.clean_line_edits(self.load_store_vbox)
         self.clean_line_edits(self.instruction_queue_vbox)
 
+
+    #@pyQtSignal
+    def update_instructions(self, functional_units, ints_queue):
+
+        self.__clean_instructions()
+
         for i in range(len(functional_units[0])):
-            self.__change_line_edit_text(self.add_sub_vbox,str(functional_units[0][i].get_instrucao()),i)
+            self.__change_line_edit_text(self.add_sub_vbox,functional_units[0][i].get_instrucao().str2(),i)
 
         for i in range(len(functional_units[1])):
-            self.__change_line_edit_text(self.mul_div_vbox,str(functional_units[1][i].get_instrucao()),i)
+            self.__change_line_edit_text(self.mul_div_vbox,functional_units[1][i].get_instrucao().str2(),i)
 
         for i in range(len(functional_units[2])):
-            self.__change_line_edit_text(self.load_store_vbox,str(functional_units[2][i].get_instrucao()),i)
+            self.__change_line_edit_text(self.load_store_vbox,functional_units[2][i].get_instrucao().str2(),i)
 
         for i in range(len(ints_queue)):
-            self.__change_line_edit_text(self.instruction_queue_vbox,str(ints_queue[i]),i)
+            self.__change_line_edit_text(self.instruction_queue_vbox,ints_queue[i].str2(),i)
 
     def __change_line_edit_text(self,vbox: QHBoxLayout, label : str, index : int,):
         item : QLineEdit = vbox.itemAt(index+1).widget()

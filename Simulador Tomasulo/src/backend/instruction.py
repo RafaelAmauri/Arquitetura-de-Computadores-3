@@ -36,6 +36,12 @@ class Instrucao:
             return f"{self.ciclosNecessarios}: {self.instrucao}, {self.rdest}, {self.rsrc1}"
         else:     
             return f"{self.ciclosNecessarios}: {self.instrucao}, {self.rdest}, {self.rsrc1}, {self.rsrc2}"
+
+    def str2(self) -> str:
+        if self.rsrc2 == '':
+            return f"{self.instrucao.upper()}, {self.rdest}, {self.rsrc1}"
+        else:     
+            return f"{self.instrucao.upper()}, {self.rdest}, {self.rsrc1}, {self.rsrc2}"
         
     def __repr__(self) -> str:
         if self.rsrc2 == '':

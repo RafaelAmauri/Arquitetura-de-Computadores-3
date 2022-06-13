@@ -16,8 +16,6 @@ class InstructionsScroll(QScrollArea):
         self.tomasulu = None
         self.setupUi()
 
-        print(self.tomasulo_step_taken)
-
     def setupUi(self):
         self.widget = QWidget()
         self.vbox   = QVBoxLayout()
@@ -39,8 +37,8 @@ class InstructionsScroll(QScrollArea):
             msg = QMessageBox()
 
             msg.setIcon(QMessageBox.Icon.Information)
-            msg.setText("Finalized")
-            msg.setInformativeText("Tomasulo was finished")
+            msg.setText("Finalized!")
+            msg.setInformativeText("Tomasulo ended successfully")
             msg.setWindowTitle("Tomasulo Status")
 
             msg.exec()
@@ -57,15 +55,13 @@ class InstructionsScroll(QScrollArea):
         self.remove_children()
 
         self.tomasulu = Tomasulo(instructions_file_path)
-
         instructions = self.tomasulu.instrucoes
 
         for i in range(len(instructions)):
 
             instruction = instructions[i]
 
-            object = InstructionBox(instruction_number= i,
-                                    instruction= instruction.instrucao,
+            object = InstructionBox(instruction= instruction.str2(),
                                     number_of_cycles= instruction.ciclosNecessarios)
             self.vbox.addWidget(object)
 
