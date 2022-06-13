@@ -50,6 +50,7 @@ class MipsInstructions:
     # Instrucoes que vao na UF de mul
     INSTRUCOES_MUL = [MUL, MUL_U, DIV, DIV_U, REM, REM_U, MHFI, MFLO]
 
+    # Instrucoes de desvio
     INSTRUCOES_DESVIO = [BEQ, BLEZ, BNE, BGTZ]
 
     # Instrucoes que vao na UF de memoria
