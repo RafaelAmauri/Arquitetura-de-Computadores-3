@@ -43,3 +43,14 @@ class MipsInstructions:
     SLL = 'sll' # Logical Shift Left
     SRL = 'srl' # Logical Shift Right (0-extended)
     SRA = 'sra' # Arithmetic Shift Right (sign-extended)
+
+    # Instrucoes que vao na UF de soma
+    INSTRUCOES_ADD = [ADD, ADDU, SUB, SUB_U, NEG, AND, OR, XOR]
+
+    # Instrucoes que vao na UF de mul
+    INSTRUCOES_MUL = [MUL, MUL_U, DIV, DIV_U, REM, REM_U, MHFI, MFLO]
+
+    INSTRUCOES_DESVIO = [BEQ, BLEZ, BNE, BGTZ]
+
+    # Instrucoes que vao na UF de memoria
+    INSTRUCOES_MEM  = [LW, SB, SH, SW, SLT, SLTI, SLTIU, SLTU, SLL, SRL, SRA]

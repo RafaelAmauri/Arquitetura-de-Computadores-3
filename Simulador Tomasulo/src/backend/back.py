@@ -41,13 +41,17 @@ class Tomasulo:
             if len(self.instrucoes) > 0:
                 for next_instr in self.instrucoes[:self.reservationStation.instruction_queue.queue_size]:
 
-                    if next_instr.instrucao == MipsInstructions.BEQ and next_instr.rsrc1 != next_instr.rsrc2:
-                        self.instrucoes.remove(next_instr)
-                        for _ in range(random.randint(0, min(len(self.instrucoes), 3))):
-                            self.instrucoes.pop(0)
-                    
-                    elif next_instr.instrucao == MipsInstructions.BEQ and next_instr.rsrc1 == next_instr.rsrc2:
-                        return TomasuloStates.FINALIZED, [self.reservationStation.add_sub, self.reservationStation.mul_divide, self.reservationStation.load_store], self.reservationStation.instruction_queue.instruction_queue
+                    if next_instr.instrucao in MipsInstructions.INSTRUCOES_DESVIO:
+                        if next_instr.instrucao == MipsInstructions.BNE and next_instr.rsrc1 != next_instr.rsrc2:
+                            return TomasuloStates.FINALIZED, [self.reservationStation.add_sub, self.reservationStation.mul_divide, self.reservationStation.load_store], self.reservationStation.instruction_queue.instruction_queue
+
+                        
+                        elif next_instr.instrucao == MipsInstructions.BEQ and next_instr.rsrc1 == next_instr.rsrc2:
+                            return TomasuloStates.FINALIZED, [self.reservationStation.add_sub, self.reservationStation.mul_divide, self.reservationStation.load_store], self.reservationStation.instruction_queue.instruction_queue
+                        
+                        else:
+                            self.instrucoes.remove(next_instr)
+                            continue
 
                     else:
                         situation = self.reservationStation.insertInstruction(next_instr)

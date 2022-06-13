@@ -87,7 +87,7 @@ class ReservationStation:
     
             self.instruction_queue.check_true_dependency(tmp)
             
-            if execute_inst.instrucao in [MipsInstructions.ADD, MipsInstructions.SUB]:
+            if execute_inst.instrucao in MipsInstructions.INSTRUCOES_ADD:
                 if execute_inst.dependencies or execute_inst.rsrc1 in self.reg_bank.get_busy_regs() or execute_inst.rsrc2 in self.reg_bank.get_busy_regs():
                     #print(f"{execute_inst} tem dependencia em {execute_inst.dependencies}!")
                     execute_situation = EnumReservationStationStates.FULL
@@ -103,7 +103,7 @@ class ReservationStation:
                     execute_situation = EnumReservationStationStates.FULL
                                 
             
-            elif execute_inst.instrucao in [MipsInstructions.MUL, MipsInstructions.DIV]:
+            elif execute_inst.instrucao in MipsInstructions.INSTRUCOES_MUL:
                 if execute_inst.dependencies:
                     #print(f"{execute_inst} tem dependencia em {execute_inst.dependencies}!")
                     execute_situation = EnumReservationStationStates.FULL
@@ -118,7 +118,7 @@ class ReservationStation:
                     execute_situation = EnumReservationStationStates.FULL
             
 
-            elif execute_inst.instrucao in [MipsInstructions.LW, MipsInstructions.SW]:
+            elif execute_inst.instrucao in MipsInstructions.INSTRUCOES_MEM:
                 if execute_inst.dependencies:
                     #print(f"{execute_inst} tem dependencia em {execute_inst.dependencies}!")
                     execute_situation = EnumReservationStationStates.FULL
