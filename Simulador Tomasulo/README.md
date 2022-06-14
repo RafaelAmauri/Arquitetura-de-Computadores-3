@@ -2,18 +2,21 @@
 
 Esse programa é um simulador do algoritmo de Tomasulo.
 
-# Features
+# Disclaimer
+
+Essa é uma versão abstraída do algoritmo de Tomasulo!
+
+# Funcionalidades
 
 - [x] Interface gráfica
-- [x] Suporte de instruções de MIPS
-- [x] Buffer de reordenamento
+- [x] Suporte a todas instruções MIPS
 - [x] Despacho fora de ordem de instruções
 - [x] Verificação de dependências verdadeiras
 - [x] Verificação de antidependências
 
 ## Como usar
 
-Use o gerenciador de dependências [pip](https://pip.pypa.io/en/stable/) na pasta do projeto. (Fortemente recomendado usar um gerenciador de ambiente, como [pyenv](https://github.com/pyenv/pyenv), [virtualenv](https://github.com/pypa/virtualenv/) ou [conda](https://docs.conda.io))
+Use o gerenciador de dependências [pip](https://pip.pypa.io/en/stable/) na pasta do projeto. (Fortemente recomendado também usar um gerenciador de ambiente, como [pyenv](https://github.com/pyenv/pyenv), [virtualenv](https://github.com/pypa/virtualenv/) ou [conda](https://docs.conda.io))
 
 ```bash
 pip install -r requirements.txt
