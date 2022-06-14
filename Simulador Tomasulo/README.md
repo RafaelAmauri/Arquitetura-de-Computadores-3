@@ -4,7 +4,7 @@ Esse programa é um simulador do algoritmo de Tomasulo.
 
 # Disclaimer
 
-Essa é uma versão abstraída do algoritmo de Tomasulo!
+A interface mostra uma versão abstraída do algoritmo de Tomasulo!
 
 # Funcionalidades
 
