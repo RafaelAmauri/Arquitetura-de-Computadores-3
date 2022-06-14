@@ -1,6 +1,6 @@
 # Simulador Tomasulo em Python!
 
-Esse programa é um simulador do algoritmo de de Tomasulo.
+Esse programa é um simulador do algoritmo de Tomasulo.
 
 # Features
 
