@@ -1,2 +1,7 @@
-# Arquitetura-de-Computadores-3
-Meus arquivos para a matéria Arquitetura de Computadores 3 (AC3) na PUC Minas com o professor Henrique Cota de Freitas. O trabalho final do semestre foi desenvolver um simulador do algoritmo de Tomasulo. 
+## Arquitetura de Computadores 3 - AC 3
+
+Aqui se encontram todos meus arquivos para a matéria Arquitetura de Computadores 3.
+
+Meus códigos inteiros ou trechos deles podem ser usados por todos, sem restrições. Tenha em mente que eu **NÃO** me responsabilizo por possíveis acusações de plágio ou cola, sejam elas por parte da PUC-MG ou qualquer outra instituição/pessoa.
+
+O uso dos códigos neste repositório é por conta e risco do usuário.
